@@ -1,24 +1,17 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2006-2019 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
-// +----------------------------------------------------------------------
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-// [ 应用入口文件 ]
-namespace think;
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-require __DIR__ . '/../vendor/autoload.php';
-
-// 执行HTTP应用并响应
-$http = (new App())->http;
-
-$response = $http->run();
-
-$response->send();
-
-$http->end($response);
+/** Loads the WordPress Environment and Template */
+require __DIR__ . '/wp-blog-header.php';
